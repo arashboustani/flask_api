@@ -22,8 +22,6 @@ Check the requirement.txt and install required libraries in a new virtual enviro
 
 `Flask (jsonify, request, make_response, current_app as app, Response)`
 
-`.db`: ONNX model to convert
-
 `requests`: list with graph input names
 
 `bs4 (BeautifulSoup)`: The BeautifulSoup helped me to do the web scraping and pull the required information from  the https://udger.com/resources/ip-list/tor_exit_node and https://www.dan.me.uk/tornodes webpages.It made me able to be able to parse the pages and extract the data in the readable  format that I needed to gather in my get commands.
@@ -40,6 +38,22 @@ Create a conda environment called _flex-logix_ with all dependencies. This comma
 ```commandline
 conda env create -f flask.yml
 conda activate flask
+```
+
+I am building/running the code on a macOS and I installed docker application and Beekeeper Studio to track the IP addresses’ change using the following get and post commands.
+
+On the client side while`python3 -m flask run` is running on the server, we can have the GET command for the IPs using the following commands. Three  are two command to get the IPs from the two resources in https://udger.com/resources/ip-list/tor_exit_node and https://www.dan.me.uk/tornodes respectively:
+
+```commandline
+curl localhost:5000/udger
+curl localhost:5000/dan
+```
+
+The following commands also can POST an specific existing IP address from the  list of IPs that we got using the previous get commands.
+
+```commandline
+curl --header "Content-Type: application/json"  --request POST --data '{"ip":"[IP-ADDRESS]"}'   http://localhost:5000/udger
+curl --header "Content-Type: application/json"  --request POST --data '{"ip":"[IP-ADDRESS]"}'   http://localhost:5000/dan
 ```
 
 
