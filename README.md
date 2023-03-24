@@ -2,7 +2,7 @@
 [![GitHub License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ### Challenge Objective
-security team needs to have a system to obtain malicious IPs in order to block them. You need to develop an application that allows us to obtain a list of Tor network IPs [torproject](https://www.torproject.org) from different external sources and present them in a way that allows us to programmatically parse/ingest them. Additionally, this application must have the functionality of EXCLUDING certain IPs from the list that gets returned.
+Security team needs to have a system to obtain malicious IPs in order to block them. You need to develop an application that allows us to obtain a list of Tor network IPs [torproject](https://www.torproject.org) from different external sources and present them in a way that allows us to programmatically parse/ingest them. Additionally, this application must have the functionality of EXCLUDING certain IPs from the list that gets returned.
 Specifically, you should develop an API (preferably REST but we leave that up to you) that implements the following endpoints:
 
 Endpoint 1: A GET endpoint that returns IPs obtained from the external sources EXCLUDING those found in the database added via Endpoint 2
@@ -34,13 +34,19 @@ Check the requirement.txt and install required libraries in a new virtual enviro
 
 One option is to install and run the python codes using [conda virtual environment](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
 
-Create a conda environment called _flex-logix_ with all dependencies. This command prepare the environment for Flex-Logix scripts. 
+Create a conda environment called flask with all dependencies. This command prepare the environment for flask_api scripts. 
 ```commandline
 conda env create -f flask.yml
 conda activate flask
 ```
 
 I am building/running the code on a macOS and I installed docker application and Beekeeper Studio to track the IP addresses’ change using the following get and post commands.
+
+Steps to run:
+1. install the dependency `python3 -m pip install -r requirements.txt`
+2. start the db using `docker run --name postgres-dev -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres`
+3. creating the table inside the db using `psql -d "host=localhost port=5432 dbname=postgres user=postgres" -a -f ./tor_ips.sql`
+4. starting the API server using `python3 -m flask run`
 
 On the client side while`python3 -m flask run` is running on the server, we can have the GET command for the IPs using the following commands. Three  are two command to get the IPs from the two resources in https://udger.com/resources/ip-list/tor_exit_node and https://www.dan.me.uk/tornodes respectively:
 
