@@ -45,8 +45,8 @@ I am building/running the code on a macOS and I installed docker application and
 Steps to run:
 1. install the dependency `python3 -m pip install -r requirements.txt`
 2. start the db using `docker run --name postgres-dev -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres`
-3. creating the table inside the db using `psql -d "host=localhost port=5432 dbname=postgres user=postgres" -a -f ./tor_ips.sql`
-4. starting the API server using `python3 -m flask run`
+3. creating the table inside the db using `psql -d "host=localhost port=5432 dbname=postgres user=postgres" -a -f ./tor_ips.sql`. When it asked for the password, please enter `password`
+5. starting the API server using `python3 -m flask run`
 
 On the client side while`python3 -m flask run` is running on the server, we can have the GET command for the IPs using the following commands. Three  are two command to get the IPs from the two resources in https://udger.com/resources/ip-list/tor_exit_node and https://www.dan.me.uk/tornodes respectively:
 
