@@ -34,8 +34,12 @@ Check the requirement.txt and install required libraries in a new virtual enviro
 ## Getting started
 ### Conda (Recommended)
 
+One option is to install and run the python codes using [conda virtual environment](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
+
 Create a conda environment called _flex-logix_ with all dependencies. This command prepare the environment for Flex-Logix scripts. 
 ```commandline
 conda env create -f flask.yml
 conda activate flask
 ```
+
+
