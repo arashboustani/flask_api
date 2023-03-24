@@ -1,4 +1,4 @@
-# Flask-api:
+# Flask-api Project
 [![GitHub License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ### Challenge Objective
@@ -36,6 +36,6 @@ Check the requirement.txt and install required libraries in a new virtual enviro
 
 Create a conda environment called _flex-logix_ with all dependencies. This command prepare the environment for Flex-Logix scripts. 
 ```commandline
-conda env create -f flex-logix.yml
-conda activate flex-logix
+conda env create -f flask.yml
+conda activate flask
 ```
